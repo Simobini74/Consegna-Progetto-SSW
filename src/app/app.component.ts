@@ -18,6 +18,8 @@ export class AppComponent  {
   importante: Array<postit>;
   chiave = '';
   log : boolean=false;
+  click: boolean = false;
+  aggiungi: boolean = false;
   constructor(private service: ChiaveService) {}
 
   login(k: string) {
@@ -34,7 +36,6 @@ export class AppComponent  {
         this.chiave = k;
       });
   }
-
   getKey() {
     this.service.Key().then(key => {
       fetch(this.service.apiURL + '/post?key=' + key + '&msg=' + {}, {
