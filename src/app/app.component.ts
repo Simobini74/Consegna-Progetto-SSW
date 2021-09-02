@@ -1,4 +1,5 @@
-import { Component, VERSION } from '@angular/core';
+import { Component} from '@angular/core';
+import { ChiaveService } from './chiave.service';
 
 export class postit {
   titolo: string;
@@ -15,4 +16,14 @@ export class AppComponent  {
   selezione: postit = new postit();
   postsalvato: Array<postit> = [];
   chiave = '';
+
+  getKey() {
+    this.service.Key().then(key => {
+      fetch(this.service.apiURL + '/post?key=' + key + '&msg=' + {}, {
+        method: 'POST'
+      }).then(response => response.json(), error => alert(error));
+      this.key = key;
+    });
+    this.log = true;
+  }
 }
