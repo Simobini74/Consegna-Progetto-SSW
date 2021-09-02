@@ -1,5 +1,5 @@
 <h1>ENTRA:</h1>
 <h2>Inserisci la chiave</h2>
-<input type='text'/><br/><br/>
+<input type='text' #yourK (keyup.enter)='useKey(yourK.value); yourK.value=""'/><br/><br/>
 <h2>Non Hai una Chiave?</h2>
-<button>OTTIENI LA TUA NUOVA CHIAVE</button>
+<button (click)=getKey()>OTTIENI LA TUA NUOVA CHIAVE</button>
