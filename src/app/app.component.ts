@@ -7,7 +7,7 @@ export class postit {
   imp: boolean;}
 
 @Component({
-  selector: app-root',
+  selector: "my-app",
   templateUrl: './app.component.html',
   styleUrls: [ './app.component.css' ]
 })
