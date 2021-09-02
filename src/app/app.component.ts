@@ -13,6 +13,6 @@ export class postit {
 export class AppComponent  {
   title: string = 'Benvenuto! Ti sei loggato con chiave:';
   selezione: postit = new postit();
-  savedPosts: Array<postit> = [];
-  key = '';
+  postsalvato: Array<postit> = [];
+  chiave = '';
 }
