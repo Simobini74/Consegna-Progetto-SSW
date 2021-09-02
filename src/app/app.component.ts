@@ -20,6 +20,21 @@ export class AppComponent  {
   log : boolean=false;
   constructor(private service: ChiaveService) {}
 
+  login(k: string) {
+    this.service.apiKEY = k;
+    this.service
+      .getData()
+      .then(response => response.json(), error => alert(error))
+      .then(data => {
+        let obj = JSON.parse(data);
+        for (let i in obj) {
+          this.postsalvato.push(obj[i]);
+        }
+        this.log = true;
+        this.chiave = k;
+      });
+  }
+
   getKey() {
     this.service.Key().then(key => {
       fetch(this.service.apiURL + '/post?key=' + key + '&msg=' + {}, {
