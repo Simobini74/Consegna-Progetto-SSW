@@ -1,4 +1,9 @@
 <div>
 <h2>APPLICAZIONE POSTIT</h2>
-<app-ottienichiave></app-ottienichiave>
+<app-ottienichiave (newKeyEvent)="login($event)" (newAltroEvent)="getKey($event) "></app-ottienichiave>
+</div>
+<ng-template #Else>
+<h3>{{title}} {{chiave}}</h3>
+<div >
+  <p> Non ci sono ancora post-it!</p>
 </div>

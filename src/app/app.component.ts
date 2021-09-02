@@ -15,14 +15,17 @@ export class AppComponent  {
   title: string = 'Benvenuto! Ti sei loggato con chiave:';
   selezione: postit = new postit();
   postsalvato: Array<postit> = [];
+  importante: Array<postit>;
   chiave = '';
+  log : boolean=false;
+  constructor(private service: ChiaveService) {}
 
   getKey() {
     this.service.Key().then(key => {
       fetch(this.service.apiURL + '/post?key=' + key + '&msg=' + {}, {
         method: 'POST'
       }).then(response => response.json(), error => alert(error));
-      this.key = key;
+      this.chiave = key;
     });
     this.log = true;
   }
